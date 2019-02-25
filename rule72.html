@@ -1,0 +1,35 @@
+<! --
+-------------
+Programmer:     Jack Morris
+Course:         ITSE-1306 (Intro to PHP)
+Instructor:     Cesar "Coach" Marrero
+Assignment:     Week7-Lab Rule of 72
+Description:    
+-------------
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Rule of 72 Calculator</title>
+</head>
+<body>
+    <h1>Rule of 72</h1>
+    <div><p>Enter rate of return and click calculate <br>
+            to see how many years it will take to <br> 
+            double investment.</p>
+        
+        <form action="handle_rule72.php" method="POST">
+            
+        <p>Rate of Return: <input type='numeric' name='rate' size='5'></p>
+        <input type="submit" name="submit" value="Calculate">
+        <?php
+            while (is_numeric($_POST['rate']) && $_POST['rate'] > 0) {
+                $years = 72 / $_POST['rate'];
+                print "<p> You will double investment in approximately $years years.</p>";
+        ?>
+        </form>
+    </div>
+</body>
+</html>
